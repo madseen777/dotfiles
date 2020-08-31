@@ -11,6 +11,9 @@
 	s = status -s -b
 	b = branch
 	f = fetch
+	; fixup = "!sh -c '(git diff-files --quiet || (echo Unstaged changes, please commit or stash with --keep-index; exit 1)) && COMMIT=$(git rev-parse $1) && git commit --fixup=$COMMIT && EDITOR=true git rebase -i --autosquash $COMMIT~1' -"
+	fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+	fixprev = "!f() { SHA=$(git rev-parse HEAD) && REV=$(git rev-parse $SHA) && git commit --fixup $SHA && EDITOR=true git rebase -i --autosquash $REV^; }; f -"
 	c = commit
 	mt = mergetool
 	ps = push
@@ -59,3 +62,5 @@
 	cmd = nvim -d $LOCAL $REMOTE
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
+[init]
+	templateDir = /Users/rk/.git-template
