@@ -4,6 +4,7 @@
 [user]
 	name = Roman Komkov
 	useConfigOnly = true
+	email = r.komkov@gmail.com
 [commit]
 	verbose = true
 [alias]
