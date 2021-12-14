@@ -64,4 +64,4 @@
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
 [init]
-	templateDir = /Users/rk/.git-template
+	templateDir = /Users/zengeist/.git-template
