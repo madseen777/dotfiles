@@ -55,6 +55,20 @@ return require("packer").startup({
 				vim.notify = require("notify")
 			end,
 		})
+		use({
+			"folke/which-key.nvim",
+			config = function()
+				require("which-key").setup({
+					plugins = {
+						marks = false,
+						registers = false,
+						spelling = {
+							enabled = true,
+						},
+					},
+				})
+			end,
+		})
 
 		-- Colorschemes
 		use({

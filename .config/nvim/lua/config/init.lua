@@ -28,6 +28,10 @@ require("telescope").setup({
 		mappings = {
 			i = { ["<esc>"] = "close" },
 		},
+		file_ignore_patterns = {
+			".git/*",
+			"node%_modules/*",
+		},
 		vimgrep_arguments = {
 			"rg",
 			"--color=never",
@@ -38,6 +42,7 @@ require("telescope").setup({
 			"--smart-case",
 			"--hidden",
 		},
+		winblend = 15,
 	},
 })
 
