@@ -175,6 +175,7 @@ return packer.startup({
 
     use({
       "nvim-lualine/lualine.nvim",
+      event = "VimEnter",
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
       config = function()
         require("lualine").setup({
@@ -199,6 +200,8 @@ return packer.startup({
 
     use({
       "akinsho/bufferline.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      event = "BufReadPre",
       config = function()
         require("bufferline").setup({
           options = {
@@ -208,7 +211,6 @@ return packer.startup({
           highlights = { buffer_selected = { gui = "bold" } },
         })
       end,
-      requires = "kyazdani42/nvim-web-devicons",
     })
 
     use({
@@ -298,6 +300,11 @@ return packer.startup({
     })
 
     use({
+      "theprimeagen/harpoon",
+      requires = "nvim-lua/plenary.nvim",
+    })
+
+    use({
       "mfussenegger/nvim-dap",
       opt = true,
       event = "VimEnter",
@@ -360,6 +367,9 @@ return packer.startup({
 
     use({
       "abecodes/tabout.nvim",
+      opt = true,
+      event = "InsertEnter",
+      after = "nvim-cmp",
       config = function()
         require("tabout").setup({
           tabkey = "<Tab>",
@@ -367,6 +377,15 @@ return packer.startup({
           act_as_shift_tab = true,
           enable_backwards = true,
           completion = true,
+          tabouts = {
+            { open = "'", close = "'" },
+            { open = '"', close = '"' },
+            { open = "`", close = "`" },
+            { open = "(", close = ")" },
+            { open = "[", close = "]" },
+            { open = "{", close = "}" },
+            { open = "<", close = ">" },
+          },
           ignore_beginning = true,
         })
       end,
