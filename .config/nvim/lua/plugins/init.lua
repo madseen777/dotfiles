@@ -35,7 +35,7 @@ return packer.startup({
 
     -- improve startup time
     use("antoinemadec/FixCursorHold.nvim")
-    use({ "lewis6991/impatient.nvim", rocks = "mpack" }) -- see: https://github.com/libmpack/libmpack-lua/pull/28
+    use({ "lewis6991/impatient.nvim" })
     use({
       "nathom/filetype.nvim",
       config = function()
@@ -227,9 +227,6 @@ return packer.startup({
       requires = {
         "kyazdani42/nvim-web-devicons",
       },
-      config = function()
-        require("nvim-tree").setup({})
-      end,
     })
 
     use({
@@ -329,8 +326,8 @@ return packer.startup({
       "neovim/nvim-lspconfig",
       opt = true,
       event = "BufReadPre",
-      wants = { "null-ls.nvim" },
-      requires = { "jose-elias-alvarez/null-ls.nvim" },
+      wants = { "null-ls.nvim", "schemastore.nvim" },
+      requires = { "jose-elias-alvarez/null-ls.nvim", "b0o/schemastore.nvim" },
       config = function()
         require("plugins.config.lsp").config()
       end,
@@ -339,7 +336,7 @@ return packer.startup({
     use({
       "hrsh7th/nvim-cmp",
       -- opt = true,
-      event = "InsertEnter",
+      -- event = "InsertEnter",
       wants = { "LuaSnip", "lspkind-nvim" },
       config = function()
         require("plugins.config.cmp").config()

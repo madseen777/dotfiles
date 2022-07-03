@@ -112,7 +112,7 @@ zinit ice wait lucid from"gh-r" bpick"krew.tar.gz" \
             sbin"krew" has"kubectl"
 zinit load kubernetes-sigs/krew
 
-zinit ice wait'0' lucid; zinit snippet OMZ::plugins/kubectl/kubectl.plugin.zsh
+zinit ice wait'0' lucid; zinit snippet OMZP::kubectl
 # }}}
 
 # Colors and highlight {{{
