@@ -47,7 +47,13 @@ return packer.startup({
     use({ "nvim-lua/plenary.nvim", module = "plenary" })
 
     -- improve startup time
-    use("antoinemadec/FixCursorHold.nvim")
+    use({
+      "antoinemadec/FixCursorHold.nvim",
+      event = "BufReadPre",
+      config = function()
+        vim.g.cursorhold_updatetime = 100
+      end,
+    })
     use({ "lewis6991/impatient.nvim" })
     use({
       "nathom/filetype.nvim",
@@ -139,8 +145,10 @@ return packer.startup({
       end,
     })
 
+    use({ "projekt0n/github-nvim-theme" })
+
     -- requires nvim 0.8+
-    -- use("kaiuri/nvim-mariana")
+    use({ "kaiuri/nvim-juliana", disable = true })
 
     use({
       "NTBBloodbath/doom-one.nvim",
@@ -230,19 +238,26 @@ return packer.startup({
     })
 
     use({
-      "kyazdani42/nvim-tree.lua",
-      opt = true,
-      cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFile" },
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      cmd = { "Neotree" },
+      module = "neo-tree",
       requires = {
-        "kyazdani42/nvim-web-devicons",
+        "nvim-lua/plenary.nvim",
+        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
       },
       config = function()
-        require("nvim-tree").setup({
-          respect_buf_cwd = true,
-          sync_root_with_cwd = true,
-          update_focused_file = {
-            enable = true,
-            update_root = true,
+        require("neo-tree").setup({
+          filesystem = {
+            follow_current_file = true,
+            hijack_netrw_behavior = "open_current",
+            use_libuv_file_watcher = true,
+          },
+          git_status = {
+            window = {
+              position = "float",
+            },
           },
         })
       end,
@@ -369,7 +384,7 @@ return packer.startup({
         {
           "j-hui/fidget.nvim",
           config = function()
-            require("fidget").setup({})
+            require("fidget").setup({ text = { spinner = "arc" } })
           end,
         },
         "b0o/schemastore.nvim",
@@ -537,6 +552,7 @@ return packer.startup({
     -- Outline
     use({
       "liuchengxu/vista.vim",
+      opt = true,
       cmd = "Vista",
       config = function()
         vim.g["vista#renderer#enable_icon"] = 1
@@ -556,8 +572,12 @@ return packer.startup({
     })
 
     -- Git
-
-    -- It's too young to use it now
+    use({
+      "ThePrimeagen/git-worktree.nvim",
+      config = function()
+        require("git-worktree").setup({})
+      end,
+    })
     use({
       "TimUntersberger/neogit",
       cmd = "Neogit",
