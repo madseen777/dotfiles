@@ -381,7 +381,15 @@ return packer.startup({
       wants = { "null-ls.nvim", "vim-illuminate", "schemastore.nvim", "cmp-nvim-lsp", "nvim-navic" },
       requires = {
         "jose-elias-alvarez/null-ls.nvim",
-        "RRethy/vim-illuminate",
+        {
+          "RRethy/vim-illuminate",
+          config = function()
+            vim.g.Illuminate_ftblacklist = {
+              "vista_kind",
+              "toggleterm",
+            }
+          end,
+        },
         {
           "j-hui/fidget.nvim",
           config = function()
