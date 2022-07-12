@@ -192,7 +192,8 @@ return packer.startup({
     use({
       "nvim-lualine/lualine.nvim",
       event = "VimEnter",
-      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+      requires = { "kyazdani42/nvim-web-devicons", "SmiteshP/nvim-navic" },
+      wants = { "nvim-navic" },
       config = function()
         local navic = require("nvim-navic")
         require("lualine").setup({
@@ -652,8 +653,10 @@ return packer.startup({
 
     use({
       "mrjones2014/dash.nvim",
+      opt = true,
       run = "make install",
       cmd = { "Dash", "DashWord" },
+      wants = { "telescope.nvim" },
       requires = { "nvim-telescope/telescope.nvim" },
     })
 
