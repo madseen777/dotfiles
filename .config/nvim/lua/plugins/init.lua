@@ -490,7 +490,7 @@ return packer.startup({
     use({
       "nvim-treesitter/nvim-treesitter",
       opt = true,
-      event = "BufRead",
+      event = "BufReadPre",
       run = ":TSUpdate",
       config = function()
         require("plugins.config.treesitter").config()
@@ -498,6 +498,7 @@ return packer.startup({
       requires = {
         "nvim-treesitter/nvim-treesitter-textobjects",
         "nvim-treesitter/nvim-treesitter-refactor",
+        { "p00f/nvim-ts-rainbow", event = "BufReadPre"}
       },
     })
 
