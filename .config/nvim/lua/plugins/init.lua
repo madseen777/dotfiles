@@ -378,7 +378,14 @@ return packer.startup({
       "neovim/nvim-lspconfig",
       opt = true,
       event = "BufReadPre",
-      wants = { "null-ls.nvim", "vim-illuminate", "schemastore.nvim", "cmp-nvim-lsp", "nvim-navic" },
+      wants = {
+        "null-ls.nvim",
+        "vim-illuminate",
+        "schemastore.nvim",
+        "cmp-nvim-lsp",
+        "nvim-navic",
+        "lsp-format.nvim",
+      },
       requires = {
         "jose-elias-alvarez/null-ls.nvim",
         {
@@ -403,6 +410,7 @@ return packer.startup({
             require("nvim-navic").setup({})
           end,
         },
+        "lukas-reineke/lsp-format.nvim",
       },
       config = function()
         require("plugins.config.lsp").config()
