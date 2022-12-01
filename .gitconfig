@@ -4,9 +4,11 @@
 [user]
 	name = Roman Komkov
 	useConfigOnly = true
-	email = r.komkov@gmail.com
+	email = roman.komkov@workday.com
+	signingkey = 6304019AF2603A63
 [commit]
 	verbose = true
+	gpgsign = true
 [alias]
 	co = checkout
 	s = status -s -b
@@ -17,6 +19,7 @@
 	fixprev = "!f() { SHA=$(git rev-parse HEAD) && REV=$(git rev-parse $SHA) && git commit --fixup $SHA && EDITOR=true git rebase -i --autosquash $REV^; }; f -"
 	c = commit
 	mt = mergetool
+	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
 	ps = push
 	pst = push --tags
 	pl = pull
@@ -64,4 +67,18 @@
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
 [init]
-	templateDir = /Users/zengeist/.git-template
+	templateDir = /Users/roman.komkov/.git-template
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[url "https://decayofmind@github.com"]
+	insteadOf = https://github.com
+
+[url "https://gitlab-ci-token@gitlab.thunderturtle.io"]
+	insteadOf = https://gitlab.thunderturtle.io
+
+[url "https://roman-komkov@ghe.megaleo.com"]
+	insteadOf = https://ghe.megaleo.com
