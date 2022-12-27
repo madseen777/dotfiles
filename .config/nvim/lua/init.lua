@@ -52,6 +52,7 @@ opt.fillchars = { vert = "│", fold = "─" }
 vim.o.switchbuf = "useopen"
 opt.termguicolors = true
 wo.number = true
+wo.relativenumber = true
 wo.cursorline = true
 
 opt.showtabline = 2
