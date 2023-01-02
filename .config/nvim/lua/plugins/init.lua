@@ -1,4 +1,11 @@
 local M = {
+  { "rest-nvim/rest.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
+    ft = { "http" },
+    config = true,
+  },
   {
     "theprimeagen/harpoon",
     config = function()
@@ -28,7 +35,8 @@ local M = {
           render = "minimal",
           stages = "fade",
           timeout = 3000,
-        })
+        }
+      )
       vim.notify = notify
     end
   },
@@ -41,6 +49,7 @@ local M = {
     event = "InsertEnter",
     config = function()
       require("nvim-autopairs").setup({
+        enable_check_bracket_line = false,
         check_ts = true,
       })
     end,
@@ -55,15 +64,11 @@ local M = {
     config = true
   },
   {
-    "decayofmind/surround.nvim",
-    config = function()
-      require("surround").setup({ mappings_style = "sandwich" })
-    end,
-  },
-  {
     "ahmedkhalf/project.nvim",
     config = function()
-      require("project_nvim").setup({})
+      require("project_nvim").setup({
+        patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "stylua.toml" },
+      })
     end,
   },
   {
@@ -130,16 +135,6 @@ local M = {
     end,
   },
   {
-    "nguyenvukhang/nvim-toggler",
-    event = "BufRead",
-    config = function()
-      require("nvim-toggler").setup({
-        inverses = { ["!="] = "==" },
-        remove_default_keybinds = true,
-      })
-    end,
-  },
-  {
     "abecodes/tabout.nvim",
     event = "InsertEnter",
     dependencies = { "nvim-cmp", "nvim-treesitter" },
@@ -162,6 +157,19 @@ local M = {
         ignore_beginning = true,
       })
     end,
+  },
+  {
+    "cshuaimin/ssr.nvim",
+    keys = {
+      {
+        "<leader>cR",
+        function()
+          require("ssr").open()
+        end,
+        mode = { "n", "x" },
+        desc = "Structural Replace",
+      },
+    },
   },
   {
     "mrjones2014/dash.nvim",
@@ -199,9 +207,25 @@ local M = {
       require("icon-picker")
     end,
   },
+  {
+    "axieax/urlview.nvim",
+    keys = {
+      {
+        "<leader>fu",
+        "<cmd>UrlView buffer action=clipboard<cr>",
+        desc = "URLs",
+      }
+    },
+    config = true
+  },
+  {
+    "rafcamlet/nvim-luapad",
+    ft = "lua",
+  },
   "junegunn/vim-easy-align",
   "direnv/direnv.vim",
-  "editorconfig/editorconfig-vim",
+  "gpanders/editorconfig.nvim",
+  "sheerun/vim-polyglot",
   { "itspriddle/vim-marked", ft = { "md", "markdown" } },
   {
     "tjdevries/cyclist.vim",

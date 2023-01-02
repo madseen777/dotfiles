@@ -1,6 +1,12 @@
 local map = vim.keymap.set
 local cnoreabbrev = vim.cmd.cnoreabbrev
 
+-- No arrows in normal mode!
+map("n", "<Up>", "<NOP>", { noremap = true })
+map("n", "<Down>", "<NOP>", { noremap = true })
+map("n", "<Left>", "<NOP>", { noremap = true })
+map("n", "<Right>", "<NOP>", { noremap = true })
+
 -- Permissive commands
 cnoreabbrev({ "W!", "w!" })
 cnoreabbrev({ "Q!", "q!" })
@@ -17,7 +23,8 @@ cnoreabbrev({ "Qall", "qall" })
 map(
   "n",
   "K",
-  "<cmd>lua require('telescope.builtin').grep_string({layout_strategy='vertical', search = vim.fn.expand('<cword>')})<cr>",
+  "<cmd>lua require('telescope.builtin').grep_string({layout_strategy='vertical', search = vim.fn.expand('<cword>')})<cr>"
+  ,
   { noremap = true, silent = true }
 )
 map("n", "<leader>K", "<cmd>DashWord<cr>", { noremap = true, silent = true })
@@ -28,8 +35,6 @@ map(
   ":lua require('toggleterm.terminal').Terminal:new { direction = 'float', count = 1 }:toggle()<CR>",
   { noremap = true, silent = true }
 )
-
-map({ "n", "v" }, "gtt", "<cmd>lua require('nvim-toggler').toggle()<cr>")
 
 map("n", "<leader>bj", "<cmd>BufferLinePick<cr>", { noremap = true, silent = true })
 map("n", "<leader>bf", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true })
@@ -42,12 +47,6 @@ map(
 
 map("", "<leader>M", "<cmd>MarkedOpen<cr>", { noremap = true, silent = true })
 map("n", "<leader>S", "<cmd>SymbolsOutline<cr>", { noremap = true, silent = true })
-
--- No arrows in normal mode!
-map("n", "<Up>", "<NOP>", { noremap = true })
-map("n", "<Down>", "<NOP>", { noremap = true })
-map("n", "<Left>", "<NOP>", { noremap = true })
-map("n", "<Right>", "<NOP>", { noremap = true })
 
 -- Window management
 map("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", { noremap = true, silent = true })
