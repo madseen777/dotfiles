@@ -5,7 +5,14 @@ local M = {
 
 function M.config()
   local mason = require("mason")
-  mason.setup({})
+  mason.setup({
+    log_level = vim.log.levels.DEBUG,
+    providers = {
+      "mason.providers.registry-api",
+      "mason.providers.client"
+    }
+  })
+
 end
 
 return M

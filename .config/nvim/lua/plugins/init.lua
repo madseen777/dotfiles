@@ -8,21 +8,17 @@ local M = {
   },
   {
     "theprimeagen/harpoon",
-    config = function()
-      require("harpoon").setup({
-        global_settings = {
-          save_on_toggle = true,
-          enter_on_sendcmd = true,
-        },
-      })
-    end,
+    opts = {
+      global_settings = {
+        save_on_toggle = true,
+        enter_on_sendcmd = true,
+      },
+    }
   },
   {
     url = "https://gitlab.com/yorickpeterse/nvim-pqf",
     event = "BufReadPre",
-    config = function()
-      require("pqf").setup()
-    end,
+    config = true,
   },
   "stevearc/dressing.nvim",
   {
@@ -47,12 +43,10 @@ local M = {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = function()
-      require("nvim-autopairs").setup({
-        enable_check_bracket_line = false,
-        check_ts = true,
-      })
-    end,
+    opts = {
+      enable_check_bracket_line = false,
+      check_ts = true,
+    }
   },
   {
     "max397574/better-escape.nvim",
@@ -74,39 +68,45 @@ local M = {
   {
     "simrat39/symbols-outline.nvim",
     cmd = { "SymbolsOutline", "SymbolsOutlineOpen" },
-    config = function()
-      require("symbols-outline").setup({
-        auto_preview = false,
-      })
-    end,
+    keys = {
+      {
+        "<leader>S",
+        "<cmd>SymbolsOutline<cr>",
+        desc = "Symbols",
+      }
+    },
+    opts = {
+      auto_preview = false,
+    }
   },
   {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
-    config = function()
-      require("trouble").setup()
-    end,
+    config = true,
+    keys = {
+      {
+        "<leader>T",
+        "<cmd>TroubleToggle<cr>",
+        desc = "Trouble",
+      }
+    },
   },
   -- Git
   {
     "TimUntersberger/neogit",
     dependencies = "nvim-lua/plenary.nvim",
     cmd = "Neogit",
-    config = function()
-      require("neogit").setup({
-        disable_hint = true,
-        disable_insert_on_commit = false,
-        integrations = {
-          diffview = true,
-        },
-      })
-    end,
+    opts = {
+      disable_hint = true,
+      disable_insert_on_commit = false,
+      integrations = {
+        diffview = true,
+      },
+    }
   },
   {
     "ThePrimeagen/git-worktree.nvim",
-    config = function()
-      require("git-worktree").setup({})
-    end,
+    config = true,
   },
   {
     "sindrets/diffview.nvim",
@@ -115,48 +115,44 @@ local M = {
   },
   {
     "akinsho/git-conflict.nvim",
-    config = true
+    config = true,
   },
   {
     "CRAG666/code_runner.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("code_runner").setup({
-        term = {
-          size = 15,
-          mode = "startinsert",
-        },
-        filetype = {
-          go = "cd $dir && go run $fileName",
-          python = "python3 $fileName",
-          sh = "bash $fileName",
-        },
-      })
-    end,
+    opts = {
+      term = {
+        size = 15,
+        mode = "startinsert",
+      },
+      filetype = {
+        go = "cd $dir && go run $fileName",
+        python = "python3 $fileName",
+        sh = "bash $fileName",
+      },
+    },
   },
   {
     "abecodes/tabout.nvim",
     event = "InsertEnter",
     dependencies = { "nvim-cmp", "nvim-treesitter" },
-    config = function()
-      require("tabout").setup({
-        tabkey = "<Tab>",
-        act_as_tab = true,
-        act_as_shift_tab = true,
-        enable_backwards = true,
-        completion = true,
-        tabouts = {
-          { open = "'", close = "'" },
-          { open = '"', close = '"' },
-          { open = "`", close = "`" },
-          { open = "(", close = ")" },
-          { open = "[", close = "]" },
-          { open = "{", close = "}" },
-          { open = "<", close = ">" },
-        },
-        ignore_beginning = true,
-      })
-    end,
+    opts = {
+      tabkey = "<Tab>",
+      act_as_tab = true,
+      act_as_shift_tab = true,
+      enable_backwards = true,
+      completion = true,
+      tabouts = {
+        { open = "'", close = "'" },
+        { open = '"', close = '"' },
+        { open = "`", close = "`" },
+        { open = "(", close = ")" },
+        { open = "[", close = "]" },
+        { open = "{", close = "}" },
+        { open = "<", close = ">" },
+      },
+      ignore_beginning = true,
+    },
   },
   {
     "cshuaimin/ssr.nvim",
@@ -176,36 +172,37 @@ local M = {
     build = "make install",
     cmd = { "Dash", "DashWord" },
     dependencies = { "nvim-telescope/telescope.nvim" },
+    keys = {
+      {
+        "<leader>K",
+        "<cmd>DashWord<cr>",
+        desc = "Search in Dash",
+      }
+    },
   },
   {
     "jakewvincent/mkdnflow.nvim",
     ft = { "md", "markdown" },
     rocks = "luautf8",
-    config = function()
-      require("mkdnflow").setup({
-        create_dirs = false,
-        mappings = {
-          MkdnToggleToDo = { { "n", "v" }, "<leader>mt" },
-        },
-      })
-    end,
+    opts = {
+      create_dirs = false,
+      mappings = {
+        MkdnToggleToDo = { { "n", "v" }, "<leader>mt" },
+      },
+    },
   },
   {
     "akinsho/toggleterm.nvim",
     cmd = { "ToggleTerm", "ToggleTermOpenAll", "ToggleTermCloseAll" },
-    config = function()
-      require("toggleterm").setup({
-        size = 30,
-      })
-    end,
+    opts = {
+      size = 30,
+    },
   },
   {
     -- instead of nvim-telescope/telescope-symbols.nvim
     "ziontee113/icon-picker.nvim",
     cmd = { "PickEverything" },
-    config = function()
-      require("icon-picker")
-    end,
+    config = true
   },
   {
     "axieax/urlview.nvim",
@@ -226,7 +223,6 @@ local M = {
   "direnv/direnv.vim",
   "gpanders/editorconfig.nvim",
   "sheerun/vim-polyglot",
-  { "itspriddle/vim-marked", ft = { "md", "markdown" } },
   {
     "tjdevries/cyclist.vim",
     config = function()

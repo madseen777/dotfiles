@@ -1,4 +1,5 @@
 local M = {
+  "rmehri01/onenord.nvim",
   {
     "navarasu/onedark.nvim",
     config = function()

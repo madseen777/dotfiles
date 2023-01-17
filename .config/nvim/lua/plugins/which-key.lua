@@ -25,6 +25,7 @@ function M.config()
       h = { "<cmd>Telescope help_tags<cr>", "Help" },
       u = { "<cmd>Telescope undo<cr>", "Undo" },
       I = { "<cmd>PickEverything<cr>", "Icons" },
+      P = { "<cmd>Telescope projects<cr>", "Projects" },
       r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
       T = { "<cmd>Neotree<cr>", "Neotree" },
       ["<cr>"] = { "<cmd>Telescope<cr>", "Pickers" },

@@ -133,6 +133,9 @@ function M.config()
         diagnostics = {
           globals = { 'vim' },
         },
+        workspace = {
+          checkThirdParty = false,
+        },
       },
     },
   })

@@ -1,6 +1,8 @@
 local map = vim.keymap.set
 local cnoreabbrev = vim.cmd.cnoreabbrev
 
+local opts = { noremap = true, silent = true }
+
 -- No arrows in normal mode!
 map("n", "<Up>", "<NOP>", { noremap = true })
 map("n", "<Down>", "<NOP>", { noremap = true })
@@ -19,6 +21,20 @@ cnoreabbrev({ "W", "w" })
 cnoreabbrev({ "Q", "q" })
 cnoreabbrev({ "Qall", "qall" })
 
+-- Don't yank!
+map("n", "x", '"_x', opts)
+map("n", "X", '"_X', opts)
+map("n", "c", '"_c', opts)
+map("v", "c", '"_c', opts)
+map("v", "C", '"_C', opts)
+
+-- Don't yank on visual paste
+map("v", "p", '"_dP', opts)
+
+-- Move selected line / block of text in visual mode
+map("x", "K", ":move '<-2<CR>gv-gv", opts)
+map("x", "J", ":move '>+1<CR>gv-gv", opts)
+
 -- Finding references
 map(
   "n",
@@ -27,7 +43,6 @@ map(
   ,
   { noremap = true, silent = true }
 )
-map("n", "<leader>K", "<cmd>DashWord<cr>", { noremap = true, silent = true })
 
 map(
   "n",
@@ -45,8 +60,7 @@ map(
   { noremap = true, silent = true }
 )
 
-map("", "<leader>M", "<cmd>MarkedOpen<cr>", { noremap = true, silent = true })
-map("n", "<leader>S", "<cmd>SymbolsOutline<cr>", { noremap = true, silent = true })
+map("n", "<leader>F", "<cmd>NeoTreeRevealToggle<cr>", { noremap = true, silent = true })
 
 -- Window management
 map("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", { noremap = true, silent = true })
@@ -62,9 +76,9 @@ map("n", "<C-h>", "<C-w>h", { noremap = true })
 map("n", "<C-l>", "<C-w>l", { noremap = true })
 
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true })
-map("n", "<Esc><Esc>", "<Esc>:nohlsearch<CR><Esc>", { noremap = true, silent = true })
+map("n", "<Esc><Esc>", "<Esc>:nohlsearch<CR><Esc>", opts)
 
-map("n", "<leader>cr", ":RunCode<CR>", { noremap = true, silent = true })
+map("n", "<leader>cr", ":RunCode<CR>", opts)
 
 map("n", "<C-/>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
 map("i", "<C-/>", "<C-o><cmd>ToggleTerm<CR>", { noremap = true, silent = true })

@@ -1,7 +1,7 @@
 local M = {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v2.x",
-  cmd = { "Neotree" },
+  cmd = { "Neotree", "NeoTreeRevealToggle" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended

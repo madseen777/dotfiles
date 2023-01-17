@@ -91,6 +91,24 @@ function M.config()
     textobjects = {
       select = {
         enable = true,
+        keymaps = {
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+          ["ao"] = "@class.outer",
+          ["io"] = "@class.inner",
+          ["ac"] = "@conditional.outer",
+          ["ic"] = "@conditional.inner",
+          ["ae"] = "@block.outer",
+          ["ie"] = "@block.inner",
+          ["al"] = "@loop.outer",
+          ["il"] = "@loop.inner",
+          ["is"] = "@statement.inner",
+          ["as"] = "@statement.outer",
+          ["ad"] = "@comment.outer",
+          ["id"] = "@comment.inner",
+          ["am"] = "@call.outer",
+          ["im"] = "@call.inner",
+        },
       },
       lsp_interop = {
         enable = true,
