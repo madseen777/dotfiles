@@ -1,11 +1,12 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
+	pager = delta
 [user]
-	name = Roman Komkov
+	name = decayofmind
 	useConfigOnly = true
-	email = roman.komkov@workday.com
-	signingkey = 6304019AF2603A63
+	email = r.komkov@gmail.com
+	signingkey = 2FFE07DA94E94DFF
 [commit]
 	verbose = true
 	gpgsign = true
@@ -45,6 +46,7 @@
         interactive = auto
         status = auto
 [diff]
+	colorMoved = default
 	prompt = true
 	tool = nvimdiff2
 [merge]
@@ -67,18 +69,22 @@
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
 [init]
-	templateDir = /Users/roman.komkov/.git-template
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+	templateDir = /Users/zengeist/.git-template
 
-[url "https://decayofmind@github.com"]
-	insteadOf = https://github.com
+[interactive]
+	diffFilter = delta --color-only --features=interactive
 
-[url "https://gitlab-ci-token@gitlab.thunderturtle.io"]
-	insteadOf = https://gitlab.thunderturtle.io
+[delta]
+	features = decorations
 
-[url "https://roman-komkov@ghe.megaleo.com"]
-	insteadOf = https://ghe.megaleo.com
+[delta "interactive"]
+	keep-plus-minus-markers = false
+
+[delta "decorations"]
+	commit-decoration-style = blue ol
+	commit-style = raw
+	file-style = omit
+	hunk-header-decoration-style = blue box
+	hunk-header-file-style = red
+	hunk-header-line-number-style = "#067a00"
+	hunk-header-style = file line-number syntax
