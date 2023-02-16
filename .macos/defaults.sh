@@ -1,10 +1,5 @@
 #!/usr/local/bin/zsh
 
-# Globals
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool true
-defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
-defaults write -globalDomain AppleKeyboardUIMode -int 3
-
 # Dock
 defaults write com.apple.dock autohide -bool true;
 defaults write com.apple.dock autohide-time-modifier -float 1;

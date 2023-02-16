@@ -1,5 +1,4 @@
 tap "aylei/tap"
-tap "cloudflare/cloudflare"
 tap "fluxcd/tap"
 tap "hashicorp/tap"
 tap "helm/tap"
@@ -10,7 +9,6 @@ tap "homebrew/core"
 tap "instrumenta/instrumenta"
 tap "jzaleski/jzaleski"
 tap "liamg/tfsec"
-tap "mike-engel/jwt-cli"
 tap "norwoodj/tap"
 tap "universal-ctags/universal-ctags"
 brew "argocd"
@@ -97,70 +95,20 @@ brew "jzaleski/jzaleski/apg"
 brew "mike-engel/jwt-cli/jwt-cli"
 brew "norwoodj/tap/helm-docs"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
-cask "1password"
 cask "adobe-acrobat-reader"
-cask "adoptopenjdk8"
-cask "appcleaner"
-cask "balenaetcher"
-cask "bartender"
 cask "bettertouchtool", args: { appdir: "/Applications" }
-cask "bitbar"
-cask "carbon-copy-cloner"
-cask "clean-me"
 cask "clipy"
 cask "dash", args: { appdir: "/Applications" }
-cask "dictionaries"
 cask "docker"
-cask "fantastical"
-cask "fliqlo"
 cask "gpg-suite"
 cask "insomnia"
 cask "intellij-idea-ce"
 cask "iterm2", args: { appdir: "/Applications" }
-cask "karabiner-elements"
-cask "keyboardcleantool"
-cask "kitty"
-cask "little-snitch"
-cask "michaelvillar-timer"
-cask "micro-snitch"
 cask "microsoft-edge", args: { appdir: "/Applications" }
-cask "onyx"
-cask "osxfuse"
-cask "pock"
-cask "protonvpn"
-cask "sdformatter"
 cask "slack"
 cask "sublime-text", args: { appdir: "/Applications" }
 cask "teamviewer"
-cask "touchswitcher"
 cask "vagrant"
 cask "virtualbox"
 cask "virtualbox-extension-pack"
 cask "visual-studio-code"
-cask "vlc"
-cask "vnc-viewer"
-cask "vuescan"
-mas "Amphetamine", id: 937984704
-mas "ApolloOne", id: 1044484672
-mas "Bear", id: 1091189122
-mas "DaisyDisk", id: 411643860
-mas "dDNS Broker", id: 1050307950
-mas "Drafts", id: 1435957248
-mas "GIPHY CAPTURE", id: 668208984
-mas "HazeOver", id: 430798174
-mas "JSONPeep", id: 1458969831
-mas "Keymou", id: 449863619
-mas "Keynote", id: 409183694
-mas "Marked 2", id: 890031187
-mas "Pages", id: 409201541
-mas "PiPifier", id: 1160374471
-mas "Pixelmator", id: 407963104
-mas "Pixelmator Pro", id: 1289583905
-mas "QREncoder", id: 452695239
-mas "Reeder", id: 1529448980
-mas "SessionRestore", id: 1463334954
-mas "Speedtest", id: 1153157709
-mas "Tampermonkey", id: 1482490089
-mas "The Archive Browser", id: 510232205
-mas "Vectornator", id: 1219074514
-mas "Vimari", id: 1480933944
