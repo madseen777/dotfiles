@@ -3,10 +3,9 @@
 	editor = nvim
 	pager = delta
 [user]
-	name = decayofmind
+	name = Andris Eizenbergs
 	useConfigOnly = true
-	email = r.komkov@gmail.com
-	signingkey = 2FFE07DA94E94DFF
+	email = andris.eizenbergs@4finance.com
 [commit]
 	verbose = true
 	gpgsign = true
@@ -53,7 +52,7 @@
 	prompt = true
 	tool = nvimdiff4
 [github]
-	user = decayofmind
+	user = madseen777
 [difftool]
 	prompt = false
 [diff "sopsdiffer"]

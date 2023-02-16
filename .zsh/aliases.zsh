@@ -15,8 +15,25 @@ alias t='true'
 alias tf='terraform'
 alias tree='exa --tree'
 alias ym='yadm'
-alias workoff='deactivate'
 alias zreload='exec $SHELL -l'
+
+#Ansible
+alias go-to-ansible='source cd ~/ansible/utils && source venv-init.sh && cd .. && export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES'
+alias workoff='deactivate'
+
+#Terraform repos
+alias go-tf-prod-net='cd ~/terraform/A05/tf-a05-networking'
+alias go-tf-prod-db='cd ~/terraform/A05/tf-a05-db'
+alias go-tf-prod-iam='cd ~/terraform/A05/tf-a05-iam'
+alias go-tf-prod-shared='cd ~/terraform/A05/tf-a05-shared'
+alias go-tf-dev-shared='cd ~/terraform/A06/tf-a06-shared && export AWS_PROFILE=a06-admin'
+alias go-tf-dev-iam='cd ~/terraform/A06/tf-a06-iam && export AWS_PROFILE=a06-admin'
+alias go-tf-dev-modules='cd ~/terraform/A06/tf-modules && export AWS_PROFILE=a06-admin'
+
+#vault
+alias vault-login='export VAULT_TOKEN=`vault login -token-only -method=ldap -address="https://vault.a05.4finance.net/" username=andris.eizenbergs`'
+alias vault-read-a06='vault read -address="https://vault.a05.4finance.net/" aws-a06/creds/administrator'
+alias vault-lease='vault lease renew -address="https://vault.a05.4finance.net/" -increment=634800'
 
 # Helm
 alias h='helm'

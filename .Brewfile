@@ -113,10 +113,7 @@ cask "dictionaries"
 cask "docker"
 cask "fantastical"
 cask "fliqlo"
-cask "google-chrome"
 cask "gpg-suite"
-cask "grammarly"
-cask "haptic-touch-bar"
 cask "insomnia"
 cask "intellij-idea-ce"
 cask "iterm2", args: { appdir: "/Applications" }
@@ -124,18 +121,17 @@ cask "karabiner-elements"
 cask "keyboardcleantool"
 cask "kitty"
 cask "little-snitch"
-cask "macs-fan-control"
 cask "michaelvillar-timer"
 cask "micro-snitch"
+cask "microsoft-edge", args: { appdir: "/Applications" }
 cask "onyx"
 cask "osxfuse"
 cask "pock"
 cask "protonvpn"
 cask "sdformatter"
 cask "slack"
-cask "spotify"
+cask "sublime-text", args: { appdir: "/Applications" }
 cask "teamviewer"
-cask "telegram"
 cask "touchswitcher"
 cask "vagrant"
 cask "virtualbox"
@@ -144,9 +140,6 @@ cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
 cask "vuescan"
-cask "zoom"
-mas ""No Distractions" for YouTube", id: 1482507016
-mas "1Blocker", id: 1365531024
 mas "Amphetamine", id: 937984704
 mas "ApolloOne", id: 1044484672
 mas "Bear", id: 1091189122
@@ -154,30 +147,20 @@ mas "DaisyDisk", id: 411643860
 mas "dDNS Broker", id: 1050307950
 mas "Drafts", id: 1435957248
 mas "GIPHY CAPTURE", id: 668208984
-mas "Grammarly for Safari", id: 1462114288
 mas "HazeOver", id: 430798174
-mas "iText", id: 1314980676
 mas "JSONPeep", id: 1458969831
 mas "Keymou", id: 449863619
 mas "Keynote", id: 409183694
 mas "Marked 2", id: 890031187
-mas "Microsoft Word", id: 462054704
-mas "Moom", id: 419330170
-mas "Octotree", id: 1457450145
 mas "Pages", id: 409201541
 mas "PiPifier", id: 1160374471
 mas "Pixelmator", id: 407963104
 mas "Pixelmator Pro", id: 1289583905
 mas "QREncoder", id: 452695239
 mas "Reeder", id: 1529448980
-mas "RSS Button for Safari", id: 1437501942
-mas "Save to Raindrop.io", id: 1549370672
 mas "SessionRestore", id: 1463334954
 mas "Speedtest", id: 1153157709
-mas "Tab Count", id: 1487406555
-mas "Tab Suspender", id: 1495356253
 mas "Tampermonkey", id: 1482490089
 mas "The Archive Browser", id: 510232205
-mas "Turn Off the Lights for Safari", id: 1273998507
 mas "Vectornator", id: 1219074514
 mas "Vimari", id: 1480933944

@@ -52,3 +52,14 @@ ecd() {
     fzf --query="$1 " --select-1 --exit-0 --height=25% --reverse --tac --no-sort --cycle) &&
     cd "$fasdlist"
 }
+
+#Jenkins info
+awsinfo () { aws ec2 describe-instances --filters "Name=tag:Name,Values=jenkins-pipeline3-worker-standard" --query 'Reservations[*].Instances[*].{"InstanceId":InstanceId,"PrivateIP":PrivateIpAddress,"State":State.Name}' }
+export06 () { export $(vault read aws-a06/creds/administrator -format=json | jq -r '"AWS_ACCESS_KEY_ID=" + .data.access_key +" " + "AWS_SECRET_ACCESS_KEY=" + .data.secret_key + " " + "VAULT_LEASE_ID=" + .lease_id') }
+export-test () { export $(vault read aws-test/creds/administrator -format=json | jq -r '"AWS_ACCESS_KEY_ID=" + .data.access_key +" " + "AWS_SECRET_ACCESS_KEY=" + .data.secret_key + " " + "VAULT_LEASE_ID=" + .lease_id') }
+loginjenkins () { ssh -i .ssh/a06-jenkins-shared.pem root@"$@"; }
+
+
+#Login
+login05 () { ssh -i .ssh/a05-devops-shared.pem centos@"$@"; }
+login06 () { ssh -i .ssh/a06-devops-shared.pem centos@"$@"; }
